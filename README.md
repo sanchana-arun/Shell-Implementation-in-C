@@ -21,13 +21,13 @@ A custom signal handler for SIGINT (interrupt signal) is set up using the signal
 ## Main Loop
 The shell operates in an infinite loop, performing the following steps:
 
-Prompting for Input: Displays a prompt ($ ) and reads a line of input from the user.
-Tokenizing Input: Converts the input line into tokens using the tokenize function.
-Handling Built-in Commands:
-exit: Terminates the shell.
-cd: Changes the current working directory.
-Background Process Management: Checks if a command should be run in the background (indicated by an & at the end of the command).
-Executing Commands: Forks a new process to execute the command using execvp. If the command is to be run in the background, it does not wait for the process to complete.
-Waiting for Processes: Waits for background processes to finish and reports their completion.
-Memory Management
+1. Prompting for Input: Displays a prompt ($ ) and reads a line of input from the user.
+2. Tokenizing Input: Converts the input line into tokens using the tokenize function.
+3. Handling Built-in Commands:
+- exit: Terminates the shell.
+- cd: Changes the current working directory.
+4. Background Process Management: Checks if a command should be run in the background (indicated by an & at the end of the command).
+5. Executing Commands: Forks a new process to execute the command using execvp. If the command is to be run in the background, it does not wait for the process to complete.
+6. Waiting for Processes: Waits for background processes to finish and reports their completion.
+##Memory Management
 The shell ensures that all dynamically allocated memory for tokens is freed after each command execution to prevent memory leaks.
